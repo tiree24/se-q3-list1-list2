@@ -5,7 +5,7 @@ Kenzie assignment: List2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__tiree__ = "I search  on google to help me with getting the answer for the problems from any different websites had alot of different ways to solve the problem."
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +28,12 @@ __author__ = "???"
 
 
 def remove_adjacent(nums):
-    # your code here
-    return
+
+    result = []
+    for num in nums:
+        if len(result) == 0 or num != result[-1]:
+            result.append(num)
+    return result
 
 
 # E. zip_merge
@@ -41,10 +45,10 @@ def remove_adjacent(nums):
 # Hint: Think of it as "zipping" two lists together.  Is there
 # a built-in function in python that will do this?
 
-
 def zip_merge(list1, list2):
-    # your code here
-    return
+    result = list(zip(list1, list2))
+
+    return result
 
 
 # F. empty_filter
@@ -57,9 +61,7 @@ def zip_merge(list1, list2):
 
 
 def empty_filter(list1):
-    # your code here
-    return
-
+    return list(filter(None, list1))
 
 # G. linear_merge
 # Given two lists sorted in increasing order, create and
@@ -73,8 +75,18 @@ def empty_filter(list1):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+
+    result = []
+
+    while len(list1) and len(list2):
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 
 # Provided simple test() function used in main() to print
